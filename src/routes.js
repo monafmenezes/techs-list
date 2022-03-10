@@ -3,10 +3,11 @@ import Dashboard from './pages/Dashboard/Dashboard.vue'
 
 export const routes = [
     {
-        path: '', component: Home
+        path: '', component: Home, name: 'Home'
     },
     {
-        path: '/dashboard', component: Dashboard
+        path: '/dashboard/:id', component: Dashboard, name: 'Dashboard'
     }
+
 
 ]
