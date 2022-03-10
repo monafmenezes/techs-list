@@ -2,11 +2,9 @@
     <div class="container-display">
         <h1>{{ titulo }}</h1>
         <ul >     
-            
-            <li class="container-list" v-for="tech of techs" :key="tech.id" >
-                <img :src="tech.image" :alt="tech.name">
-                <h3>{{tech.name}}</h3>
-                <router-link class="link" :to="{name: 'Dashboard', params: { id: tech.id }}">Saiba mais</router-link>
+            <li class="container-list" v-for="item of list" :key="item.id" >
+                <h3>{{item.title}}</h3>
+                <router-link class="link" :to="{name: 'Dashboard', params: { id: item.id }}">Saiba mais</router-link>
 
             </li>
           
@@ -17,7 +15,7 @@
 <script>
     export default{
     
-        props: ['techs'],
+        props: ['list'],
 
         data(){
             return {
@@ -25,13 +23,7 @@
             }
         },
 
-        methods: {
-            addTech(tech) {
-                this.techSelect = tech
-            }
-        }
-
-
+    
     }
 
 
@@ -42,8 +34,8 @@
 
    .container-display ul{
        display: flex;
-       flex-wrap: wrap;
-       max-width: 70%;
+      flex-direction: column;
+      
        margin: 0 auto;
        list-style: none;
        
@@ -55,22 +47,17 @@
 
     .container-display li {
 
-        margin: 15px;
-        width: 250px;
-        height: 250px;
-        background-color: blueviolet;
+        margin: 5px;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items:  flex-start;
         justify-content: center;
-        border-radius: 8px;
+      
     }
-    .container-display li:hover{
-        filter: brightness(0.9);
-    }
+    
 
     .container-display .link {
-        color: white;
+       color: black;
         text-decoration: none;
     }
 </style>

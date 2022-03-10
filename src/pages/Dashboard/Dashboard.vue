@@ -1,11 +1,11 @@
 <template>
     <div class="container-dashboard">
         <nav>
-            <h1>{{tech.name}}</h1>
+            <h1> ID: {{list.id}}</h1>
             <router-link class="link" to="/">Home</router-link>
         </nav>
 
-        <Card :title="tech.name" :url="tech.image" :description="tech.description"/>
+        <Card :title="list.title"  :id="list.id"/>
 
        
     </div>
@@ -18,7 +18,7 @@ export default{
     data() {
         return{
             id: this.$route.params.id,
-            tech: ''
+            list: ''
         }
     },
 
@@ -27,13 +27,9 @@ export default{
     },
 
     created() {
-        this.$http.get(`http://localhost:3000/techs/${this.id}`)
+        this.$http.get(`https://jsonplaceholder.typicode.com/todos/${this.id}`)
            .then(response => response.json())
-           .then(tech => {
-              
-              this.tech = tech
-
-           })
+           .then(list => {this.list = list})
     }
 
 }

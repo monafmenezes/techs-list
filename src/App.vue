@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <router-view :techs="techs"  ></router-view>
+        <router-view :list="list" ></router-view>
     </div>
 </template>
 
@@ -10,15 +10,15 @@
          data() {
             return {
                 titulo: "Saiba mais sobre as Techs:", 
-                techs: []
+                list: []
             }
         },
     
         created(){
     
-        this.$http.get('http://localhost:3000/techs')
+        this.$http.get('https://jsonplaceholder.typicode.com/todos')
             .then(response => response.json())
-            .then(techs => this.techs = techs, err => console.log(err))
+            .then(list => this.list = list, err => console.log(err))
         }, 
 
       
@@ -33,7 +33,6 @@
     }
 
     .container {
-        background-color: rgb(217, 186, 243);
         height: 100vh;
         font-family: sans-serif;
         text-align: center;

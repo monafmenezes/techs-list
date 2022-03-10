@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Display :techs="techs"></Display>
+        <Display :list="list"></Display>
     </div>
 </template>
 
@@ -10,7 +10,7 @@ import Display from '../../components/shared/Display/Display.vue'
 
 export default{
 
-    props:['techs'],
+    props:['list'],
 
     components: {
         Display: Display

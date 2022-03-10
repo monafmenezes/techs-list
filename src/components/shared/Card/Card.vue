@@ -1,7 +1,6 @@
 <template>
      <div class="container-card">
             
-            <img :src="url" :alt="title">
             <h5>{{title}}</h5>
             <p>{{description}}</p>
 
@@ -10,7 +9,7 @@
 
 <script>
 export default {
-    props: ['title', 'url', 'description']
+    props: ['title', 'id']
     
    
 }
