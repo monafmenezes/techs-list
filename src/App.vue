@@ -10,8 +10,7 @@
          data() {
             return {
                 titulo: "Saiba mais sobre as Techs:", 
-                techs: [],
-                techSelect: {}
+                techs: []
             }
         },
     
