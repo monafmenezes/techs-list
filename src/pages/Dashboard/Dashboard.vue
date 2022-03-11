@@ -13,6 +13,7 @@
 
 <script>
 import Card from '../../components/shared/Card/Card.vue'
+import axios from 'axios'
 
 export default{
     data() {
@@ -27,11 +28,10 @@ export default{
     },
 
     created() {
-        this.$http.get(`https://jsonplaceholder.typicode.com/todos/${this.id}`)
-           .then(response => response.json())
-           .then(list => {this.list = list})
+        axios.get(`https://jsonplaceholder.typicode.com/todos/${this.id}`, this.list)
+            .then((res => this.list = res.data ))
+            .catch(err => console.log(err))
     }
-
 }
 
 </script>

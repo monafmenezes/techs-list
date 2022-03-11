@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import axios from 'axios'
     export default{
 
          data() {
@@ -15,11 +16,12 @@
         },
     
         created(){
+
+            axios.get('https://jsonplaceholder.typicode.com/todos', this.list)
+                .then(res => this.list = res.data)
+                .catch(err => console.log(err))
     
-        this.$http.get('https://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then(list => this.list = list, err => console.log(err))
-        }, 
+        }
 
       
        
