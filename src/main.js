@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router';
+import store from './store/store'
 
 import { routes } from './routes'
 
@@ -16,5 +17,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })

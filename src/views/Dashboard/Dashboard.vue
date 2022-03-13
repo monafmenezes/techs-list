@@ -1,11 +1,10 @@
 <template>
     <div class="container-dashboard">
         <nav>
-            <h1> ID: {{list.id}}</h1>
             <router-link class="link" to="/">Home</router-link>
         </nav>
 
-        <Card :title="list.title"  :id="list.id"/>
+        <Card/>
 
        
     </div>
@@ -13,25 +12,16 @@
 
 <script>
 import Card from '../../components/shared/Card/Card.vue'
-import axios from 'axios'
+import {mapState} from 'vuex'
 
 export default{
-    data() {
-        return{
-            id: this.$route.params.id,
-            list: ''
-        }
-    },
-
+   
     components: {
         Card: Card
-    },
-
-    created() {
-        axios.get(`https://jsonplaceholder.typicode.com/todos/${this.id}`, this.list)
-            .then((res => this.list = res.data ))
-            .catch(err => console.log(err))
     }
+    
+
+   
 }
 
 </script>

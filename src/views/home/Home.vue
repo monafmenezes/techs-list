@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Display :list="list"></Display>
+        <Display></Display>
     </div>
 </template>
 
@@ -9,12 +9,10 @@
 import Display from '../../components/shared/Display/Display.vue'
 
 export default{
-
-    props:['list'],
-
     components: {
-        Display: Display
-    }, 
+        Display
+    }
+   
 
    
    

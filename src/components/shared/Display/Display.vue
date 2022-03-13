@@ -1,11 +1,11 @@
 <template>
     <div class="container-display">
-        <h1>{{ titulo }}</h1>
         <ul >     
             <li class="container-list" v-for="item of list" :key="item.id" >
                 <h3>{{item.title}}</h3>
-                <router-link class="link" :to="{name: 'Dashboard', params: { id: item.id }}">Saiba mais</router-link>
-
+                <router-link class="link"   :to="{name: 'Dashboard'}">
+                    <button @click="submit(item)">Saiba mais</button>
+                </router-link>
             </li>
           
         </ul>
@@ -13,18 +13,41 @@
 </template>
 
 <script>
-    export default{
-    
-        props: ['list'],
+import { mapState, mapActions } from 'vuex'
 
-        data(){
-            return {
-                titulo: 'Saiba mais sobre as techs',
-            }
+    export default {
+     
+       computed: {
+           ...mapState({
+               list: state => state.list,
+               selectList: state => state.selectList
+           }),
+
+           
+           
+ 
+       },
+       created(){
+            this.ActionGetList()
+           
+            
+
         },
+        methods: {
+            ...mapActions(['ActionGetList']),
+            ...mapActions(['ActionSetSelectList']),
 
+            submit(listItem){
+                this.ActionSetSelectList(listItem)
+            }
+            
     
+        }
+
+        
     }
+    
+    
 
 
 </script>

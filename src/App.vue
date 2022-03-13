@@ -1,30 +1,14 @@
 <template>
     <div class="container">
-        <router-view :list="list" ></router-view>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
-import axios from 'axios'
+
     export default{
 
-         data() {
-            return {
-                titulo: "Saiba mais sobre as Techs:", 
-                list: []
-            }
-        },
     
-        created(){
-
-            axios.get('https://jsonplaceholder.typicode.com/todos', this.list)
-                .then(res => this.list = res.data)
-                .catch(err => console.log(err))
-    
-        }
-
-      
-       
     }
 </script>
 

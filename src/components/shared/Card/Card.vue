@@ -1,15 +1,21 @@
 <template>
      <div class="container-card">
             
-            <h5>{{title}}</h5>
-            <p>{{description}}</p>
+            <p>ID: {{selecList.id}}</p>
+            <h5>Tílulo: {{selecList.title}}</h5>
 
      </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-    props: ['title', 'id']
+     computed: {
+           ...mapState({
+                selecList: state => state.selectList
+           })
+ 
+       }
     
    
 }
@@ -20,7 +26,6 @@ export default {
     .container-card {
         width: 50%;
         height: 70%;
-        background-color: blueviolet;
         margin: 0 auto;
         font-family: sans-serif;
         display: flex;
@@ -28,9 +33,9 @@ export default {
         align-items: center;
         font-size: 18px;
         border-radius: 5px;
-        color: #FFFFFF;
         margin-top: 30px;
         justify-content: center;
+        color: black;
        
     }
 
